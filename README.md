@@ -1,3 +1,5 @@
+## [Project Overview](docs/Test_practice_qauto2.forstudy.space_Group_1.pdf)
+
 ## Test Plan
 - [Stage 1. 1.1-1.4 - Олексій](docs/test_plan.pdf)
 - TBD:   Stage 2. Points 2-3 - Марія
