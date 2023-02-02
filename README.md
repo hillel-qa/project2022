@@ -5,7 +5,7 @@
 | - | Stage 4. Bugs search and test execution - Кароліна | [Testcaselab link](https://hillelitschool.testcaselab.com/projects/QAS/test_run/65112?statuses=failed&sort_dir=desc&sort_attr=created_at&test_case_id=1377517) | 21
 | Mind-map | Олексій | [miro.com board link](https://miro.com/app/board/uXjVPDIAWjQ=/) | 34
 | Checklist | Юрій | [Googledocs link](https://docs.google.com/document/d/1GXE5BPOthVOXYeKYSqpOZ43z9ei2ICXVZgN3qv0j1EM/edit?usp=sharing) | 13
-| User story | [User stories PDF](docs/user_stories.pdf) | 13
+| User story | Світлана | [User stories PDF](docs/user_stories.pdf) | 13
 | Test cases | Write additional 10 cases(based on user story, mind map and checklist) - Святослав | [Testcaselab link](https://hillelitschool.testcaselab.com/projects/QAS/test_cases?sort_dir=desc&sort_attr=created_at&test_case_id=1377125&category_id=170419) | 13
 | API testing | | [Postman](tests/Postman/) | 21
 | Metrics | | [Googledocs link](https://docs.google.com/spreadsheets/d/1pyU7mJK3IFP0p5jU1noNJrIaXn7dtRQD3ddnNR8z5ZE/edit#gid=0) | 13
