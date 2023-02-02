@@ -1,0 +1,2109 @@
+{
+	"info": {
+		"_postman_id": "b324035f-9c5b-4be4-8f38-ea76c2c590ed",
+		"name": "Hillel_api/logs_requests_2022_KK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25620966"
+	},
+	"item": [
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "get cars brands",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify 'data' has cars\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"const car = jsonData.data;",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/brands",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get car brand by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify 'data' has cars\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"const car = jsonData.data;",
+									"",
+									"pm.test(\"verify 'data' has our newly created car\", function () {",
+									"    pm.expect(car).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"verify carBrandId\", function () {",
+									"    pm.expect(car.carBrandId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify carModelId\", function () {",
+									"    pm.expect(car.carModelId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify initialMileage\", function () {",
+									"    pm.expect(car.initialMileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify mileage\", function () {",
+									"    pm.expect(car.mileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify brand\", function () {",
+									"    pm.expect(car.brand).to.eql(\"Audi\");",
+									"});",
+									"",
+									"pm.test(\"verify model\", function () {",
+									"    pm.expect(car.model).to.eql(\"TT\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cars models",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify 'data' has cars\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"const car = jsonData.data;",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/models",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cars list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify 'data' has cars\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"//find our new car in the array",
+									"const car = jsonData.data.find(car => car.id == Number(pm.environment.get('car_id')));",
+									"",
+									"pm.test(\"verify 'data' has our newly created car\", function () {",
+									"    pm.expect(car).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"verify carBrandId\", function () {",
+									"    pm.expect(car.carBrandId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify carModelId\", function () {",
+									"    pm.expect(car.carModelId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify initialMileage\", function () {",
+									"    pm.expect(car.initialMileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify mileage\", function () {",
+									"    pm.expect(car.mileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify brand\", function () {",
+									"    pm.expect(car.brand).to.eql(\"Audi\");",
+									"});",
+									"",
+									"pm.test(\"verify model\", function () {",
+									"    pm.expect(car.model).to.eql(\"TT\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gets current user cars",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successfully received data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(pm.environment.get(\"car_id\"))",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove car by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify removed carId\", function () {",
+									"    pm.expect(jsonData.data.carId).to.eql(Number(pm.environment.get('car_id')));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove car by Id loop over ids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify removed carId\", function () {",
+									"    pm.expect(jsonData.data.carId).to.eql(Number(pm.environment.get('car_id')));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const cars = [",
+									"81361,",
+									"81351,",
+									"81350,",
+									"81352,",
+									"81353,",
+									"81354,",
+									"81355,",
+									"81356,",
+									"81357,",
+									"81358,",
+									"81359,",
+									"81360,",
+									"81349,",
+									"81348,",
+									"81345,",
+									"81346,",
+									"81347,",
+									"81344,",
+									"81343,",
+									"81342,",
+									"81341,",
+									"81340,",
+									"81339,",
+									"81338,",
+									"81337,",
+									"81329,",
+									"81330,",
+									"81331,",
+									"81332,",
+									"81333,",
+									"81334,",
+									"81335,",
+									"81336,",
+									"81324,",
+									"81325,",
+									"81326,",
+									"81327,",
+									"81328,",
+									"81323,",
+									"81322,",
+									"81321,",
+									"81320,",
+									"81319,",
+									"81318,",
+									"81206",
+									"];",
+									"",
+									"let item = pm.globals.get(\"itemOfArray\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add car",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"//set 'car_id' env variable to the newly created car id",
+									"pm.environment.set('car_id', jsonData.data.id);",
+									"",
+									"pm.test(\"verify carBrandId\", function () {",
+									"    pm.expect(jsonData.data.carBrandId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify carModelId\", function () {",
+									"    pm.expect(jsonData.data.carModelId).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"verify initialMileage\", function () {",
+									"    pm.expect(jsonData.data.initialMileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify mileage\", function () {",
+									"    pm.expect(jsonData.data.mileage).to.eql(123);",
+									"});",
+									"",
+									"pm.test(\"verify brand\", function () {",
+									"    pm.expect(jsonData.data.brand).to.eql(\"Audi\");",
+									"});",
+									"",
+									"pm.test(\"verify model\", function () {",
+									"    pm.expect(jsonData.data.model).to.eql(\"TT\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"carBrandId\": 1,\n    \"carModelId\": 1,\n    \"mileage\": 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gets current user car by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successfully received data\", function () {",
+									"    pm.expect(pm.response.text()).to.include(pm.environment.get(\"car_id\"))",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edits existing car",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"edited exiting car\", function () {",
+									"    pm.expect(pm.response.text()).to.include(pm.environment.get(\"car_id\"))",
+									"});",
+									"",
+									"pm.test(\"edit exiting mileage\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.mileage).to.eql(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"carBrandId\": 1,\n    \"carModelId\": 1,\n    \"mileage\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete exiting car",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify removed carId\", function () {",
+									"    pm.expect(jsonData.data.carId).to.eql(Number(pm.environment.get('car_id')));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/{{car_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"{{car_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get car model by id/bad request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"verify 'data' has cars\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"const car = jsonData.data;",
+									"",
+									"pm.test(\"successfully received data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.id).to.eql(1);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/cars/models/{{c@r_model_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"cars",
+								"models",
+								"{{c@r_model_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "expenses",
+			"item": [
+				{
+					"name": "gets all expenses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"successfully received data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses?carId={{car_id}}&page3_",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses"
+							],
+							"query": [
+								{
+									"key": "carId",
+									"value": "{{car_id}}"
+								},
+								{
+									"key": "page3_",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creates an expense",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');",
+									"",
+									"pm.environment.set('currentdate', moment().format((\"YYYY-MM-DD\")));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"expense successfully created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.car_id).to.eql(pm.environment.get(\"car_id\"));",
+									"});",
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"expenses_id\", jsonData.data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"carId\": {{car_id}},\n  \"reportedAt\": \"{{currentdate}}\",\n  \"mileage\": 3003,\n  \"liters\": 30,\n  \"totalCost\": 202,\n  \"forceMileage\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gets an expense by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');",
+									"",
+									"pm.environment.set('currentdate', moment().format((\"YYYY-MM-DD\")));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"expenses_id\", jsonData.data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"carId\": {{car_id}},\n  \"reportedAt\": \"{{currentdate}}\",\n  \"mileage\": 3003,\n  \"liters\": 30,\n  \"totalCost\": 202,\n  \"forceMileage\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses/{{expenses_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses",
+								"{{expenses_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edits an expense",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"mileage updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.mileage).to.eql(3004);",
+									"});",
+									"",
+									"pm.test(\"liters are updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.liters).to.eql(31);",
+									"});",
+									"",
+									"pm.test(\"totalCost are updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.totalCost).to.eql(241.57);",
+									"});",
+									"",
+									"pm.test(\"Expenses updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.carId).to.eql(pm.environment.get(\"car_id\"));",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');",
+									"",
+									"pm.environment.set('currentdate', moment().format((\"YYYY-MM-DD\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"carId\": {{car_id}},\n  \"reportedAt\": \"{{currentdate}}\",\n  \"mileage\": 3004,\n  \"liters\": 31,\n  \"totalCost\": 203,\n  \"forceMileage\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses/{{expenses_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses",
+								"{{expenses_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removes an expense",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									"pm.test(\"expense successfully deleted\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses/{{expenses_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses",
+								"{{expenses_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creates an expense/bad request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment');",
+									"",
+									"pm.environment.set('currentdate', moment().format((\"YYYY-MM-DD\")));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"expense successfully created\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.car_id).to.eql(pm.environment.get(\"car_id\"));",
+									"});",
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"expenses_id\", jsonData.data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"carId\": true,\n  \"reportedAt\": \"{{currentdate}}\",\n  \"mileage\": 3003,\n  \"liters\": 30,\n  \"totalCost\": 202,\n  \"forceMileage\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/expenses",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "instructions",
+			"item": [
+				{
+					"name": "get all instructions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/instructions/{{car_brand_id}}&{{car_model_id}}&page=1",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"instructions",
+								"{{car_brand_id}}&{{car_model_id}}&page=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instructions by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/instructions/{{car_brand_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"instructions",
+								"{{car_brand_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all instructions by id/bad request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/instructions{{car_brand_id}}",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"instructions{{car_brand_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"user_id\", jsonData.data.userId);",
+									"",
+									"pm.test(\"user successfuly registered\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});",
+									"",
+									"pm.test(\"request is successful\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"pm.test(\"user_id received\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"userId\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name}}\",\n    \"lastName\": \"{{lastName}}\",\n    \"email\": \"{{user_email}}\",\n    \"password\": \"{{user_password}}\",\n    \"repeatPassword\": \"{{user_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/signup",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON response format\", function () {",
+									"    //top object",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"        .that.has.all.keys('status', 'data');",
+									"",
+									"    //status",
+									"    pm.expect(jsonData.status).to.be.an('string');",
+									"",
+									"    //data",
+									"    pm.expect(jsonData.data).to.be.an('object')",
+									"        .that.has.all.keys('userId', 'photoFilename', 'distanceUnits', 'currency');",
+									"",
+									"    //data members",
+									"    pm.expect(jsonData.data.userId).to.be.an('number');",
+									"    pm.expect(jsonData.data.photoFilename).to.be.an('string');",
+									"    pm.expect(jsonData.data.distanceUnits).to.be.an('string');",
+									"    pm.expect(jsonData.data.currency).to.be.an('string');",
+									"});",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"JSON 'data.userId' is correct\", function () {",
+									"    pm.expect(jsonData.data.userId).to.eql(Number(pm.environment.get('user_id')));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{user_email}}\",\n    \"password\": \"{{user_password}}\",\n    \"remember\": {{remember}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/signin",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"request is successful\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"pm.test(\"status is OK\", function () {",
+									"    pm.response.to.have.body({\"status\": \"ok\"});",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"{{user_email}}\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/resetPassword",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.get(\"cookie\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let cookie = postman.getResponseHeader(\"Set-Cookie\");",
+									"postman.setEnvironmentVariable(\"cookie\", cookie);",
+									"",
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/logout",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password/bad request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"request is successful\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"pm.test(\"status is OK\", function () {",
+									"    pm.response.to.have.body({\"status\": \"ok\"});",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"{{user_emaill}}\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/resetPassword",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get user data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/current",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user profile data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'data.userId' is correct\", function () {",
+									"    pm.expect(jsonData.data.userId).to.eql(Number(pm.environment.get('user_id')));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/profile",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successful request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"pm.test(\"user name updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.name).to.eql(\"Karolina\");",
+									"});",
+									"",
+									"pm.test(\"user lastName updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.lastName).to.eql(\"Kk\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\":  \"{{user_id}}\",\n  \"photoFilename\": \"default-user.png\",\n  \"name\":  \"Karolina\",\n  \"lastName\": \"Kk\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/profile",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"",
+									" pm.expect(jsonData.data.currency).to.be.an('string');",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"pm.test(\"verify 'currency' has 'usd'\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/settings",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verify 'currency' was updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.currency).to.eql(\"usd\");",
+									"});",
+									"",
+									"pm.test(\"verify 'distanceUnits' was updated\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.distanceUnits).to.eql(\"ml\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currency\": \"eur\",\n  \"distanceUnits\": \"km\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/settings",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successfull password reset\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/resetPassword/{{user_id}}/yygjtQseiWlw5S8",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"resetPassword",
+								"{{user_id}}",
+								"yygjtQseiWlw5S8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change user email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successful request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"JSON 'status' is 'ok'\", function () {",
+									"    pm.expect(jsonData.status).to.eql(\"ok\");",
+									"});",
+									"",
+									" pm.expect(jsonData.status).to.be.an('string');",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"lokiujy@proton.me\",\n  \"password\": \"{{user_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/email",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "password reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successful request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.body({\"status\": \"ok\"});",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"{{user_email}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/auth/resetPassword",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"account deleted\", function () {",
+									"    pm.response.to.have.body({\"status\": \"ok\"});",
+									"});",
+									"",
+									"pm.test(\"status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword/bad request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"successfull password reset\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql('ok');",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hillel_api_base_URL}}/users/resetPassword/{{user_id}}/",
+							"host": [
+								"{{hillel_api_base_URL}}"
+							],
+							"path": [
+								"users",
+								"resetPassword",
+								"{{user_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "variable_key",
+			"value": ""
+		},
+		{
+			"key": "hillel_api_base_URL",
+			"value": "https://qauto2.forstudy.space/api",
+			"type": "string"
+		},
+		{
+			"key": "user_email",
+			"value": "slsovowl@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "user_password",
+			"value": "karkaskaska11",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "11448",
+			"type": "string"
+		}
+	]
+}

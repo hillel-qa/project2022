@@ -5,3 +5,15 @@
 
 ## User Story
 - [Світлана](docs/user_stories.pdf)
+
+## API testing
+- [](tests/Postman/)
+
+## Load testing
+- [](tests/LoadTesting.jmx)
+
+## Selenium IDE
+- [](tests/API_testing.side)
+
+## Selenium
+- [](tests/Selenium_WebDriver_PyTest/)
