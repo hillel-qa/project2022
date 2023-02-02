@@ -7,13 +7,13 @@
 - [Світлана](docs/user_stories.pdf)
 
 ## API testing
-- [](tests/Postman/)
+- [Postman](tests/Postman/)
 
 ## Load testing
-- [](tests/LoadTesting.jmx)
+- [Jmeter](tests/LoadTesting.jmx)
 
 ## Selenium IDE
-- [](tests/API_testing.side)
+- [Selenium IDE](tests/API_testing.side)
 
 ## Selenium
-- [](tests/Selenium_WebDriver_PyTest/)
+- [WebDriver_Pytest](tests/Selenium_WebDriver_PyTest/)
