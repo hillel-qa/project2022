@@ -1,7 +1,7 @@
 | Part | Stage | Link | Story points |
 |------|-------|------|--------------|
-| The inter | Stage 1. 1.1-1.4 - Олексій | [Googledocs link](https://docs.google.com/document/d/1RnLdDBnWCtPN616Tr0q_BMpIUgkTJ3vl/edit) | 8
-| - | Stage 2. Points 2-3 - Марія | [Googledocs link](https://docs.google.com/document/d/17MmGuQ42S59QAA2S2ZNh6yaU_bpz66R7LpbBISo0JnU/edit) | 21
+| Test Plan | Stage 1. 1.1-1.4 - Олексій | [Test plan PDF](docs/test_plan_15.11.2022.pdf) | 8
+| - | Stage 2. Points 2-3 - Марія | [Test plan PDF](docs/test_plan_04.12.2022.pdf) | 21
 | - | Stage 4. Bugs search and test execution - Кароліна | [Testcaselab link](https://hillelitschool.testcaselab.com/projects/QAS/test_run/65112?statuses=failed&sort_dir=desc&sort_attr=created_at&test_case_id=1377517) | 21
 | Mind-map | Олексій | [miro.com board link](https://miro.com/app/board/uXjVPDIAWjQ=/) | 34
 | Checklist | Юрій | [Googledocs link](https://docs.google.com/document/d/1GXE5BPOthVOXYeKYSqpOZ43z9ei2ICXVZgN3qv0j1EM/edit?usp=sharing) | 13
